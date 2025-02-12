@@ -61,3 +61,44 @@ git push origin main
 หากมีคำถามหรือพบปัญหาในการใช้งาน สามารถติดต่อผ่าน:
 - สร้าง Issue ใน GitHub Repository
 - ติดต่อผู้ดูแล Repository โดยตรง
+
+
+## กรณีเผลอไป rename โดยตรง
+
+จากผลลัพธ์ git status ผมเห็นว่ามีไฟล์ที่ถูกลบและมีไฟล์ใหม่ที่ยังไม่ได้ track ครับ เราต้องจัดการกับการเปลี่ยนชื่อโฟลเดอร์เหล่านี้ใน git ดังนี้:
+
+1. ก่อนอื่น add การเปลี่ยนแปลงทั้งหมด:
+```bash
+# add ไฟล์ที่ถูกลบ
+git add "Final mapping document/D1.py"
+git add "Final mapping document/D2.py"
+git add "Final mapping document/D3.py"
+git add "Final mapping document/main_run_subprocess.py"
+git add "Final mapping document/แปลง score จาก context.ipynb"
+
+# add โฟลเดอร์ใหม่
+git add "4. Final mapping document/"
+git add "2. นป 7 ที่เป็นตัวตั้ง แบบ checklist แล้วทำ agentic chunk summary/"
+```
+
+2. commit การเปลี่ยนแปลง:
+```bash
+git commit -m "rename directories and reorganize files"
+```
+
+3. push ขึ้น GitHub:
+```bash
+git push origin main
+```
+
+ถ้าต้องการยกเลิกการเปลี่ยนแปลงทั้งหมดและเริ่มใหม่:
+```bash
+# ยกเลิกการเปลี่ยนแปลงทั้งหมด
+git restore .
+
+# จากนั้นค่อยใช้ git mv เพื่อ rename
+git mv "Final mapping document" "4. Final mapping document"
+git mv "นป 7 ที่เป็นตัวตั้ง แบบ checklist แล้วทำ agentic chunk summary" "2. นป 7 ที่เป็นตัวตั้ง แบบ checklist แล้วทำ agentic chunk summary"
+```
+
+ต้องการให้อธิบายขั้นตอนไหนเพิ่มเติมไหมครับ?
