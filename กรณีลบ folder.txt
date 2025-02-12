@@ -1,0 +1,29 @@
+ผมจะแนะนำวิธีลบโฟลเดอร์จาก GitHub repository ครับ:
+
+1. ก่อนอื่นถ้ายังไม่ได้ clone repository:
+```bash
+git clone https://github.com/lengtsp/custom_rag_pipeline.git
+cd custom_rag_pipeline
+```
+
+2. ลบโฟลเดอร์ออกจาก git:
+```bash
+git rm -r "นป 7 ที่เป็นตัวตั้ง แบบ checklist แล้วทำ agentic chunk summary"
+```
+
+3. Commit การเปลี่ยนแปลง:
+```bash
+git commit -m "remove folder"
+```
+
+4. Push การเปลี่ยนแปลงขึ้น GitHub:
+```bash
+git push origin main
+```
+
+ถ้าต้องการลบเฉพาะจาก Git แต่ยังเก็บไฟล์ไว้ในเครื่อง ให้เพิ่ม --cached:
+```bash
+git rm -r --cached "นป 7 ที่เป็นตัวตั้ง แบบ checklist แล้วทำ agentic chunk summary"
+```
+
+ต้องการให้อธิบายเพิ่มเติมไหมครับ?
